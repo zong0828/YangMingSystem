@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-use App\ORM\User as UserEloquent;
+use App\Services\Model\ORM\User as UserEloquent;
 
-use App\ORM\UserProfile as UserInfoEloquent;
+use App\Services\Model\ORM\UserProfile as UserInfoEloquent;
 
 class MakeUserSeeder extends Seeder
 {
@@ -31,6 +31,57 @@ class MakeUserSeeder extends Seeder
 			'USN'=>'yang5341',
 			'address'=>'',
 			'Department'=>"助理",
+		]);
+
+		$user3=UserEloquent::create([
+			's_id'=>'student',
+			'r_id'=>'1',
+			'name'=>'學生',
+			'email'=>'s0968048786@gmail.com',
+			'password'=>bcrypt('student')
+		]);
+		$user3->assignRole('student');
+		
+		$userinfo3=UserInfoEloquent::create([
+			'school_id'=>'student',
+			'semester'=>'105',
+			'USN'=>'student',
+			'address'=>'',
+			'Department'=>"CT01",
+		]);
+
+		$user1=UserEloquent::create([
+			's_id'=>'admin',
+			'r_id'=> '4',
+			'name'=>'admin',
+			'email'=>'s0968048786@gmail.com',
+			'password'=>bcrypt('admin')
+		]);
+		$user1->assignRole('administrator');
+		
+		$userinfo1=UserInfoEloquent::create([
+			'school_id'=>'admin',
+			'semester'=>'999',
+			'USN'=>'admin',
+			'address'=>'',
+			'Department'=>"AD001",
+		]);
+
+		$user2=UserEloquent::create([
+			's_id'=>'teacher',
+			'r_id'=>'2',
+			'name'=>'老師',
+			'email'=>'s0968048786@gmail.com',
+			'password'=>bcrypt('teacher')
+		]);
+		$user2->assignRole('teacher');
+		
+		$userinfo2=UserInfoEloquent::create([
+			'school_id'=>'teacher',
+			'semester'=>'105',
+			'USN'=>'teacher',
+			'address'=>'',
+			'Department'=>"TE01",
 		]);
 		
     }

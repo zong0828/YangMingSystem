@@ -1,18 +1,17 @@
 <?php
-
-namespace App\ORM;
+namespace App\Services\Model\ORM;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
-use App\ORM\UserProfile as UserInfoEloquent;
+use App\Services\Model\ORM\UserProfile as UserInfoEloquent;
 
 
 class User extends Authenticatable
 {
     use Notifiable;
     use HasRoles;
-    
+    protected $table = 'users';
     protected $guard_name = 'web';
     
     /**
