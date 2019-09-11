@@ -5,7 +5,7 @@
 
 \vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php
 
-timestamps fumction ->       959 961 行更改   
+timestamps function ->       959 961 行更改   
 $this->timestamp('created_at', $precision)->default(\DB::raw('CURRENT_TIMESTAMP(0)'));
 
 $this->timestamp('updated_at', $precision)->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
